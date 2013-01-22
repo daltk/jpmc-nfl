@@ -1,0 +1,29 @@
+<%= form_for(@ownership) do |f| %>
+  <% if @ownership.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ownership.errors.count, "error") %> prohibited this ownership from being saved:</h2>
+
+      <ul>
+      <% @ownership.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :round %><br />
+    <%= f.number_field :round %>
+  </div>
+  <div class="field">
+    <%= f.label :pick %><br />
+    <%= f.number_field :pick %>
+  </div>
+  <div class="field">
+    <%= f.label :team_name %><br />
+    <%= f.text_field :team_name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

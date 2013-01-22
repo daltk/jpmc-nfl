@@ -1,0 +1,13 @@
+development:
+  host: localhost
+  adapter: postgresql
+  database: nfl_connect
+  username: postgres
+  password: vegpuf
+## YAML Template.
+production:
+  host: localhost
+  adapter: postgresql
+  database: nfl_connect
+  username: postgres
+  password: vegpuf

@@ -1,0 +1,91 @@
+
+Creat a field in the Players table for selection call it Selected . So teh Players table now has following columns
+PlayerName
+Position
+Selected
+
+
+Created a Table called DRAFTED 
+
+with following colums in it
+D-Round
+D-Tteam
+D-Player
+D-Position
+
+I.
+Every time a player is Drafted make its status as "S" in th players Table and create a row in the DRAFTED table for that player;The Supervisort will select the Round,Team and the Player and hit the select button; Execute procedure Select-Draft-Assign for each Selected Draft;
+
+II.
+To see the Results by Round/Team use the following SQL and Display
+
+/*************************
+ To See Draft by round use following SQL
+
+in-Round is selected Round ; In-team is selected team 
+
+/***
+Select D-Round,D-team,D-Player,D-position
+Where D-Round=in-Round ;
+ 
+
+To See Draft by Team use following SQL
+
+Select D-round,D-team,D-Player, D-position
+Where D-Team = in-team;
+
+
+III. To see undrafted players alphabetically use following SQL and display
+
+Select playerName,Position
+From Players
+Where Selected Not = "S"
+Ascending Playername;
+
+IV. 
+TO See Last 3 picks;
+Select top 3 
+From DRAFTED
+ORDER BY D-Round DESC;
+Display the rows
+
+V.
+
+
+
+
+
+
+Procedure Select-Draft-Assign( Draft-round,TeamName,Player,Position)
+
+
+/* The following code will update the status of Player to "S" if he is drafted and created a record in Drafted table with that Player and team */
+
+Begin Transaction
+Update Players
+  Set Player-Stat ="S"             
+      Where ( PlayerName =Player);
+   If error display error and rollout transaction and exit;
+INSERT  Into DRAFTED
+( D-Round,D-Team,D-Player,D-position)
+VALUES 
+(Draft-round,TeamName,Player,Position) ;
+If error display and rollout transaction and exit;
+End Transaction;
+
+End ( Procedure)
+
+/*************************
+ To See Draft by round use following SQL
+
+in-Round is selected Round ; In-team is selected team 
+
+/***
+Select D-Round,D-team,D-Player,D-position
+Where D-Round=in-Round ;
+ 
+
+To See Draft by Team use following SQL
+
+Select D-round,D-team,D-Player, D-position
+Where D-Team = in-team;

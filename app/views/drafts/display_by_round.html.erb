@@ -1,0 +1,26 @@
+
+<table>
+  <tr>
+    <th>D round</th>
+    <th>D team</th>
+    <th>D player</th>
+    <th>D position</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @team_drafts.each do |draft| %>
+  <tr>
+    <td><%= draft.d_round %></td>
+    <td><%= draft.d_team %></td>
+    <td><%= draft.d_player %></td>
+    <td><%= draft.d_position %></td>
+    <td><%= link_to 'Show', draft %></td>
+    <td><%= link_to 'Edit', edit_draft_path(draft) %></td>
+    <td><%= link_to 'Destroy', draft, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />

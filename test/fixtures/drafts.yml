@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  d_round: 1
+  d_team: MyString
+  d_player: MyString
+  d_position: MyString
+
+two:
+  d_round: 1
+  d_team: MyString
+  d_player: MyString
+  d_position: MyString

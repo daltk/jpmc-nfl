@@ -1,0 +1,33 @@
+<%= form_for(@draft) do |f| %>
+  <% if @draft.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@draft.errors.count, "error") %> prohibited this draft from being saved:</h2>
+
+      <ul>
+      <% @draft.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :d_round %><br />
+    <%= f.number_field :d_round %>
+  </div>
+  <div class="field">
+    <%= f.label :d_team %><br />
+    <%= f.text_field :d_team %>
+  </div>
+  <div class="field">
+    <%= f.label :d_player %><br />
+    <%= f.text_field :d_player %>
+  </div>
+  <div class="field">
+    <%= f.label :d_position %><br />
+    <%= f.text_field :d_position %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
